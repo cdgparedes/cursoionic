@@ -1,0 +1,18 @@
+
+<h1> POST </h1>  
+    <ul class="list-gruop">
+        <app-post  *ngFor="let mensaje of mensajes | async " 
+                    [mensaje] ="mensaje"
+                    (clickPost)="escuchaClick( $event )"> <!--Mandamos el mensaje al componente hijo-->
+
+        </app-post>
+       <!--<li  *ngFor="let mensaje of mensajes | async "    class=list-group-item>
+            <h2>
+                {{mensaje.title}}
+            </h2>
+            <p>
+                {{mensaje.body}}
+            </p>
+        </li>--> 
+    </ul>
+
