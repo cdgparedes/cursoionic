@@ -3,13 +3,30 @@
 
 <ion-content>
  <ion-list>
-   <ion-item *ngFor="let user of usuarios | async"> <!-- | async con este pipe se subscribe  y por lo tanto el resultado debe ser un iterable -->
-     <ion-label>
-       <h3>{{user.name}}</h3>  
-       <p>{{user.email}}</p>
-     </ion-label>
-     <ion-label slot="end" class="ion-text-end text-small">{{user.phone}}</ion-label>
-   </ion-item>
+  <ion-item-sliding *ngFor="let user of usuarios | async">   <!-- | async con este pipe se subscribe  y por lo tanto el resultado debe ser un iterable -->
+   
+    <ion-item-options side="start">
+      <ion-item-option (click)="favorite(user)">Favorite</ion-item-option>
+      <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      <ion-item-option color="danger" (click)="share(user)">Share</ion-item-option>
+      <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+    </ion-item-options>
+   
+    <ion-item >
+      <ion-label>
+        <h3>{{user.name}}</h3>  
+        <p>{{user.email}}</p>
+      </ion-label>
+      <ion-label slot="end" class="ion-text-end text-small">{{user.phone}}</ion-label>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option color="danger" (click)="delete(user)">Favorite</ion-item-option>
+      <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      <ion-item-option color="danger" (click)="share(user)">Share</ion-item-option>
+      <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+    </ion-item-options>
+  </ion-item-sliding>
  </ion-list>
 
   

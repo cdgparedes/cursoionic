@@ -10,11 +10,17 @@ import { DataService } from 'src/app/services/data.service';
 export class ListPage implements OnInit {
 
   constructor(private dataService: DataService) { }
-  
   usuarios: Observable<any>;
   
   ngOnInit() {
     this.usuarios = this.dataService.getUsuarios();
+  }
+
+  favorite(user: any){
+    console.log('favorite', user);
+  }
+  share(user: any){
+    console.log('share', user);
   }
 
 }
